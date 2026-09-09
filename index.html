@@ -117,16 +117,41 @@
       border-bottom: var(--border);
       position: relative; overflow: hidden;
     }
-    .hero::before { content: ''; position: absolute; top: 15%; right: -100px; width: 400px; height: 400px; background: var(--yellow); opacity: 0.15; transform: rotate(45deg); }
-    .hero::after { content: ''; position: absolute; bottom: 10%; right: 50px; width: 250px; height: 250px; background: var(--blue); opacity: 0.1; transform: rotate(-20deg); }
-    .hero-inner { width: 100%; max-width: 900px; position: relative; z-index: 1; }
-    .hero-tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--yellow); padding: 6px 12px; display: inline-block; margin-bottom: 20px; border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
-    .hero h1 { font-family: var(--display); font-size: clamp(2rem, 6vw, 4.5rem); line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 20px; text-transform: uppercase; }
+    .hero-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content {
+      padding-left: 40px;
+    }
+    .hero-tag {
+      font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--yellow); padding: 6px 12px; display: inline-block; margin-bottom: 20px;
+      border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink);
+    }
+    .hero h1 {
+      font-family: var(--display); font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 20px; text-transform: uppercase;
+    }
     .hero h1 .outline { -webkit-text-stroke: 2px var(--ink); color: transparent; }
     .hero h1 .filled { background: var(--red); color: var(--cream); padding: 0 8px; display: inline-block; transform: rotate(-1deg); }
-    .hero-sub { font-size: 0.95rem; color: var(--ink-light); max-width: 500px; margin-bottom: 24px; font-weight: 500; border-left: 4px solid var(--blue); padding-left: 16px; }
+    .hero-sub {
+      font-size: 1rem; color: var(--ink-light); max-width: 500px; margin-bottom: 24px;
+      font-weight: 500; border-left: 4px solid var(--blue); padding-left: 16px;
+    }
     .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { font-family: var(--mono); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 12px 20px; border: var(--border); box-shadow: var(--shadow); transition: all 0.2s; display: inline-block; white-space: nowrap; }
+    .btn {
+      font-family: var(--mono); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 12px 20px; border: var(--border); box-shadow: var(--shadow);
+      transition: all 0.2s; display: inline-block; white-space: nowrap;
+    }
     .btn:active { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--ink); }
     .btn-red { background: var(--red); color: var(--cream); }
     .btn-red:hover { background: #c62835; transform: translateY(-2px); }
@@ -135,19 +160,60 @@
     .btn-blue { background: var(--blue); color: var(--cream); }
     .btn-blue:hover { background: #356b8a; transform: translateY(-2px); }
 
+    .hero-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border: var(--border);
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+      transition: transform 0.3s;
+    }
+    .hero-image img:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1/1;
+      background: var(--yellow);
+      top: 10px;
+      left: -10px;
+      z-index: -1;
+      transform: rotate(-3deg);
+    }
+
     /* MARQUEE */
-    .marquee { background: var(--ink); color: var(--cream); padding: 10px 0; overflow: hidden; border-bottom: var(--border); width: 100%; }
-    .marquee-track { display: flex; gap: 24px; white-space: nowrap; animation: scroll 25s linear infinite; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; width: max-content; }
+    .marquee {
+      background: var(--ink); color: var(--cream); padding: 10px 0; overflow: hidden;
+      border-bottom: var(--border); width: 100%;
+    }
+    .marquee-track {
+      display: flex; gap: 24px; white-space: nowrap; animation: scroll 25s linear infinite;
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; width: max-content;
+    }
     @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* SECTIONS */
     .section { padding: 60px 20px; border-bottom: var(--border); width: 100%; }
-    .section-title { font-family: var(--display); font-size: clamp(1.5rem, 4vw, 2.5rem); text-transform: uppercase; margin-bottom: 30px; letter-spacing: -0.02em; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-title {
+      font-family: var(--display); font-size: clamp(1.5rem, 4vw, 2.5rem);
+      text-transform: uppercase; margin-bottom: 30px; letter-spacing: -0.02em;
+    }
     .section-title .highlight { background: var(--green); color: var(--cream); padding: 0 5px; }
 
     /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; }
-    .about-text-col { display: flex; flex-direction: column; }
     .about-arrow { font-size: 1.5rem; color: var(--red); display: block; margin-bottom: 15px; }
     .about-para { font-size: 0.9rem; color: var(--ink-light); margin-bottom: 15px; line-height: 1.7; }
     .about-award { font-size: 0.85rem; color: var(--ink-light); border-left: 3px solid var(--red); padding-left: 12px; font-style: italic; }
@@ -209,10 +275,23 @@
     .footer-links a { color: var(--cream); text-decoration: underline; }
     .footer-links a:hover { color: var(--yellow); }
 
+    /* TABLET - Hide hero image */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 0; }
+      .hero-content { padding-left: 0; }
+      .hero-image { display: none; }
+    }
+
     /* MOBILE */
     @media (max-width: 768px) {
       .hamburger { display: flex; }
-      .nav-links { display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100vh; height: 100svh; background: var(--ink); flex-direction: column; justify-content: center; align-items: center; gap: 20px; padding: 20px; z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; list-style: none; margin: 0; }
+      .nav-links {
+        display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        width: 100%; height: 100vh; height: 100svh; background: var(--ink);
+        flex-direction: column; justify-content: center; align-items: center; gap: 20px;
+        padding: 20px; z-index: 999; opacity: 0; pointer-events: none;
+        transition: opacity 0.3s ease; list-style: none; margin: 0;
+      }
       .nav-links.open { opacity: 1; pointer-events: auto; }
       .nav-links a { font-size: 1.5rem; color: var(--cream); padding: 16px; width: 100%; text-align: center; display: block; }
       .hamburger.active span { background: var(--cream); }
@@ -255,18 +334,23 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-tag">Ratuwamai-10, Morang, Nepal</div>
-      <h1>
-        I BUILD<br>
-        <span class="outline">WEBSITES</span><br>
-        <span class="filled">THAT WORK</span>
-      </h1>
-      <p class="hero-sub">
-        School websites, restaurant landing pages, quiz systems, and portfolios. Built by hand. No templates. No shortcuts.
-      </p>
-      <div class="hero-buttons">
-        <a href="#hire" class="btn btn-red">HIRE ME</a>
-        <a href="#projects" class="btn btn-cream">SEE MY WORK</a>
+      <div class="hero-content">
+        <div class="hero-tag">Ratuwamai-10, Morang, Nepal</div>
+        <h1>
+          I BUILD<br>
+          <span class="outline">WEBSITES</span><br>
+          <span class="filled">THAT WORK</span>
+        </h1>
+        <p class="hero-sub">
+          School websites, restaurant landing pages, quiz systems, and portfolios. Built by hand. No templates. No shortcuts.
+        </p>
+        <div class="hero-buttons">
+          <a href="#hire" class="btn btn-red">HIRE ME</a>
+          <a href="#projects" class="btn btn-cream">SEE MY WORK</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/me.jpg" alt="Laxman Poudel — Web Developer from Morang, Nepal" loading="eager" />
       </div>
     </div>
   </section>
@@ -290,46 +374,48 @@
 
   <!-- ABOUT -->
   <section class="section" id="about">
-    <h2 class="section-title">ABOUT <span class="highlight">ME</span></h2>
-    <div class="about-grid">
-      <div class="about-text-col">
-        <span class="about-arrow">↙</span>
-        <p class="about-para">I'm Laxman Poudel — a developer and builder from Ratuwamai-10, Morang, Nepal. I enjoy turning ideas into real things: web tools, security platforms, automation bots, and real-time applications.</p>
-        <p class="about-para">I care about making technology that works for Nepal — tools that understand local infrastructure, local languages, and local problems.</p>
-        <p class="about-award">"Building for Nepal, one tool at a time."</p>
-        <div class="tools-row">
-          <span class="tool-tag">HTML</span>
-          <span class="tool-tag">CSS</span>
-          <span class="tool-tag">JavaScript</span>
-          <span class="tool-tag">Python</span>
-          <span class="tool-tag">C++</span>
-          <span class="tool-tag">Node.js</span>
-          <span class="tool-tag">React</span>
-          <span class="tool-tag">Next.js</span>
-          <span class="tool-tag">Firebase</span>
-          <span class="tool-tag">Flutter</span>
-          <span class="tool-tag">Git</span>
-          <span class="tool-tag">Linux</span>
-          <span class="tool-tag">Kali</span>
-          <span class="tool-tag">Metasploit</span>
+    <div class="section-inner">
+      <h2 class="section-title">ABOUT <span class="highlight">ME</span></h2>
+      <div class="about-grid">
+        <div>
+          <span class="about-arrow">↙</span>
+          <p class="about-para">I'm Laxman Poudel — a developer and builder from Ratuwamai-10, Morang, Nepal. I enjoy turning ideas into real things: web tools, security platforms, automation bots, and real-time applications.</p>
+          <p class="about-para">I care about making technology that works for Nepal — tools that understand local infrastructure, local languages, and local problems.</p>
+          <p class="about-award">"Building for Nepal, one tool at a time."</p>
+          <div class="tools-row">
+            <span class="tool-tag">HTML</span>
+            <span class="tool-tag">CSS</span>
+            <span class="tool-tag">JavaScript</span>
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">C++</span>
+            <span class="tool-tag">Node.js</span>
+            <span class="tool-tag">React</span>
+            <span class="tool-tag">Next.js</span>
+            <span class="tool-tag">Firebase</span>
+            <span class="tool-tag">Flutter</span>
+            <span class="tool-tag">Git</span>
+            <span class="tool-tag">Linux</span>
+            <span class="tool-tag">Kali</span>
+            <span class="tool-tag">Metasploit</span>
+          </div>
         </div>
-      </div>
-      <div>
-        <div class="meta-note">
-          <span class="meta-label">BASED IN</span>
-          <span class="meta-val">Ratuwamai-10, Morang, Nepal</span>
-        </div>
-        <div class="meta-note">
-          <span class="meta-label">CURRENTLY STUDYING</span>
-          <span class="meta-val">BIT — Bachelor of Information Technology</span>
-        </div>
-        <div class="meta-note">
-          <span class="meta-label">CURRENTLY BUILDING</span>
-          <span class="meta-val">Nepal-focused platforms, Telegram/WhatsApp bots, security tools</span>
-        </div>
-        <div class="meta-note">
-          <span class="meta-label">INTERESTED IN</span>
-          <span class="meta-val">Ethical hacking · Automation · Real-time systems · Local-first tech</span>
+        <div>
+          <div class="meta-note">
+            <span class="meta-label">BASED IN</span>
+            <span class="meta-val">Ratuwamai-10, Morang, Nepal</span>
+          </div>
+          <div class="meta-note">
+            <span class="meta-label">CURRENTLY STUDYING</span>
+            <span class="meta-val">BIT — Bachelor of Information Technology</span>
+          </div>
+          <div class="meta-note">
+            <span class="meta-label">CURRENTLY BUILDING</span>
+            <span class="meta-val">Nepal-focused platforms, Telegram/WhatsApp bots, security tools</span>
+          </div>
+          <div class="meta-note">
+            <span class="meta-label">INTERESTED IN</span>
+            <span class="meta-val">Ethical hacking · Automation · Real-time systems · Local-first tech</span>
+          </div>
         </div>
       </div>
     </div>
@@ -337,95 +423,99 @@
 
   <!-- SERVICES -->
   <section class="section" id="services">
-    <h2 class="section-title">WHAT I <span class="highlight">DO</span></h2>
-    <div class="services-grid">
-      <div class="service-item">
-        <span class="service-num">/ 01</span>
-        <h3>School Websites</h3>
-        <p>Complete websites for educational institutions with admission information and student resources.</p>
-      </div>
-      <div class="service-item">
-        <span class="service-num">/ 02</span>
-        <h3>Restaurant Pages</h3>
-        <p>Conversion-focused landing pages that showcase menu, location, and contact information.</p>
-      </div>
-      <div class="service-item">
-        <span class="service-num">/ 03</span>
-        <h3>Quiz Systems</h3>
-        <p>Interactive quiz platforms with real-time scoring and instant feedback.</p>
-      </div>
-      <div class="service-item">
-        <span class="service-num">/ 04</span>
-        <h3>Portfolios</h3>
-        <p>Standout personal websites that showcase skills and attract opportunities.</p>
+    <div class="section-inner">
+      <h2 class="section-title">WHAT I <span class="highlight">DO</span></h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <span class="service-num">/ 01</span>
+          <h3>School Websites</h3>
+          <p>Complete websites for educational institutions with admission information and student resources.</p>
+        </div>
+        <div class="service-item">
+          <span class="service-num">/ 02</span>
+          <h3>Restaurant Pages</h3>
+          <p>Conversion-focused landing pages that showcase menu, location, and contact information.</p>
+        </div>
+        <div class="service-item">
+          <span class="service-num">/ 03</span>
+          <h3>Quiz Systems</h3>
+          <p>Interactive quiz platforms with real-time scoring and instant feedback.</p>
+        </div>
+        <div class="service-item">
+          <span class="service-num">/ 04</span>
+          <h3>Portfolios</h3>
+          <p>Standout personal websites that showcase skills and attract opportunities.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section class="section projects" id="projects">
-    <h2 class="section-title">RECENT <span class="highlight">WORK</span></h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-visual blue">
-          <span class="visual-text">SCHOOL</span>
-          <span class="project-badge">Education</span>
-        </div>
-        <div class="project-body">
-          <h3>Rastranirman Secondary School</h3>
-          <p>Complete school website with admission information, academic programs, and student resources.</p>
-          <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JS</span>
+    <div class="section-inner">
+      <h2 class="section-title">RECENT <span class="highlight">WORK</span></h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-visual blue">
+            <span class="visual-text">SCHOOL</span>
+            <span class="project-badge">Education</span>
           </div>
-          <a href="https://rastranirman.vercel.app/" class="project-link" target="_blank" rel="noopener">View Website →</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-visual red">
-          <span class="visual-text">RESTAURANT</span>
-          <span class="project-badge">Food</span>
-        </div>
-        <div class="project-body">
-          <h3>Vu-Se-Chho Restaurant</h3>
-          <p>Landing page for a local restaurant in Urlabari with menu display and location details.</p>
-          <div class="project-tags">
-            <span class="project-tag">React</span>
-            <span class="project-tag">Tailwind</span>
+          <div class="project-body">
+            <h3>Rastranirman Secondary School</h3>
+            <p>Complete school website with admission information, academic programs, and student resources.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JS</span>
+            </div>
+            <a href="https://rastranirman.vercel.app/" class="project-link" target="_blank" rel="noopener">View Website →</a>
           </div>
-          <a href="https://vusechho.vercel.app/" class="project-link" target="_blank" rel="noopener">View Website →</a>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="project-visual green">
-          <span class="visual-text">QUIZ</span>
-          <span class="project-badge">Interactive</span>
-        </div>
-        <div class="project-body">
-          <h3>Quiz System</h3>
-          <p>Dynamic quiz platform with instant feedback and scoring system.</p>
-          <div class="project-tags">
-            <span class="project-tag">JS</span>
-            <span class="project-tag">Firebase</span>
+        <div class="project-card">
+          <div class="project-visual red">
+            <span class="visual-text">RESTAURANT</span>
+            <span class="project-badge">Food</span>
           </div>
-          <a href="https://iamlaxman.github.io/quiz-template/" class="project-link" target="_blank" rel="noopener">View Website →</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-visual orange">
-          <span class="visual-text">PORTFOLIO</span>
-          <span class="project-badge">Personal</span>
-        </div>
-        <div class="project-body">
-          <h3>Personal Portfolio</h3>
-          <p>Custom portfolio website for professionals and freelancers.</p>
-          <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JS</span>
+          <div class="project-body">
+            <h3>Vu-Se-Chho Restaurant</h3>
+            <p>Landing page for a local restaurant in Urlabari with menu display and location details.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Tailwind</span>
+            </div>
+            <a href="https://vusechho.vercel.app/" class="project-link" target="_blank" rel="noopener">View Website →</a>
           </div>
-          <a href="https://laxmanpoudel.info.np/" class="project-link" target="_blank" rel="noopener">View Website →</a>
+        </div>
+        <div class="project-card">
+          <div class="project-visual green">
+            <span class="visual-text">QUIZ</span>
+            <span class="project-badge">Interactive</span>
+          </div>
+          <div class="project-body">
+            <h3>Quiz System</h3>
+            <p>Dynamic quiz platform with instant feedback and scoring system.</p>
+            <div class="project-tags">
+              <span class="project-tag">JS</span>
+              <span class="project-tag">Firebase</span>
+            </div>
+            <a href="https://iamlaxman.github.io/quiz-template/" class="project-link" target="_blank" rel="noopener">View Website →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-visual orange">
+            <span class="visual-text">PORTFOLIO</span>
+            <span class="project-badge">Personal</span>
+          </div>
+          <div class="project-body">
+            <h3>Personal Portfolio</h3>
+            <p>Custom portfolio website for professionals and freelancers.</p>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JS</span>
+            </div>
+            <a href="https://laxmanpoudel.info.np/" class="project-link" target="_blank" rel="noopener">View Website →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -442,21 +532,23 @@
 
   <!-- CONTACT -->
   <section class="section" id="contact">
-    <h2 class="section-title">GET IN <span class="highlight">TOUCH</span></h2>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3>Contact Info</h3>
-        <a href="mailto:hello@laxman-poudel.com.np" class="contact-link">hello@laxman-poudel.com.np</a>
-        <a href="https://wa.me/9779867844454" class="contact-link" target="_blank">+977 9867844454</a>
-        <a href="#" class="contact-link">Ratuwamai-10, Morang, Nepal</a>
+    <div class="section-inner">
+      <h2 class="section-title">GET IN <span class="highlight">TOUCH</span></h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact Info</h3>
+          <a href="mailto:hello@laxman-poudel.com.np" class="contact-link">hello@laxman-poudel.com.np</a>
+          <a href="https://wa.me/9779867844454" class="contact-link" target="_blank">+977 9867844454</a>
+          <a href="#" class="contact-link">Ratuwamai-10, Morang, Nepal</a>
+        </div>
+        <form class="contact-form" action="https://formspree.io/f/xkoelbar" method="POST">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <input type="text" name="subject" placeholder="What do you need?" required />
+          <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+          <button type="submit" class="btn btn-blue">SEND MESSAGE</button>
+        </form>
       </div>
-      <form class="contact-form" action="https://formspree.io/f/xkoelbar" method="POST">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="email" name="email" placeholder="Your email" required />
-        <input type="text" name="subject" placeholder="What do you need?" required />
-        <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-        <button type="submit" class="btn btn-blue">SEND MESSAGE</button>
-      </form>
     </div>
   </section>
 
@@ -506,13 +598,6 @@
         if (target) target.scrollIntoView({ behavior: 'smooth' });
       });
     });
-
-    // Service worker registration
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
-      });
-    }
   </script>
 </body>
 </html>
