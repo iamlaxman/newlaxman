@@ -1,0 +1,27 @@
+# Laxman Poudel — Web Developer
+
+> Web developer from Ratuwamai-10, Morang, Nepal. Building school websites, restaurant landing pages, quiz systems, and personal portfolios.
+
+## Services
+
+- **School Websites**: Complete websites for educational institutions
+- **Restaurant Landing Pages**: Conversion-focused pages for restaurants
+- **Quiz Systems**: Interactive quiz platforms with scoring
+- **Personal Portfolios**: Custom portfolio websites
+
+## Contact
+
+- Email: hello@laxman-poudel.com.np
+- WhatsApp: +977 9867844454
+- Location: Ratuwamai-10, Morang, Nepal
+
+## Projects
+
+- Rastranirman Secondary School: https://rastranirman.vercel.app/
+- Vu-Se-Chho Restaurant: https://vusechho.vercel.app/
+- Quiz System: https://iamlaxman.github.io/quiz-template/
+- Portfolio: https://laxmanpoudel.info.np/
+
+---
+
+*Last updated: September 2026*
